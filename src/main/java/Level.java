@@ -1,32 +1,19 @@
-import java.util.Scanner;
-
-public class Game {
+public class Level {
 
     String level ;
     int boardSize;
     int mineCount;
 
 
-
-
-
-
-    //UserInterface userInterface = new UserInterface();
-
-    public Game(){
-
-
-        //Board board = new Board();
-        //board.make2DArrayBoardFromCells(9,9);
-
-
+    public Level(String level, int boardSize, int mineCount) {
+        this.level = level;
+        this.boardSize = boardSize;
+        this.mineCount = mineCount;
     }
 
+    public Level(){
 
-
-
-
-
+    }
 
 
 

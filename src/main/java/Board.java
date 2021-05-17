@@ -5,14 +5,14 @@ public class Board {
     private int columns;
     private int rows;
 
-    public Board(int numberOfMines, Cell cell, int columns, int rows) {
+    public Board(/*int numberOfMines, Cell cell, int columns, int rows*/) {
         this.numberOfMines = numberOfMines;
         this.cell = cell;
         this.columns = columns;
         this.rows = rows;
     }
 
-    public Cell[][] make2DArrayBoardFromCells (int columns, int rows){
+    public void make2DArrayBoardFromCells (int columns, int rows){
         Cell[][] cellArray = new Cell[columns][rows];
 
         for (int i=0; i<columns; i++) {
@@ -20,7 +20,8 @@ public class Board {
                 cellArray [i][j] = new Cell();
             }
         }
-        return cellArray;
+        System.out.println(cellArray);
+        //return cellArray;
     }
 
 

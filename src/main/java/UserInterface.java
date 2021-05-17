@@ -1,14 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 
-public class UserInterface extends JFrame {
+public class UserInterface extends JFrame implements ActionListener {
     int spacing = 1;
     int cellSize = 30;
     int topRowHeight = 50;
-    int cellCount = ;//need to change accordingly to difficulty
+    int cellCount = 9;//need to change accordingly to difficulty
 
     int mx;
     int my;
@@ -28,6 +26,18 @@ public class UserInterface extends JFrame {
         this.addMouseMotionListener(move);
         Click click = new Click();
         this.addMouseListener(click);
+
+
+        //-----------------------------------//
+        JButton button = new JButton();
+        button.setBounds(200,100,100,50);
+        this.add(button);
+
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
     }
 
@@ -61,9 +71,9 @@ public class UserInterface extends JFrame {
 
         @Override
         public void mouseMoved(MouseEvent e) {
-            mx = e.getX();
-            my = e.getY();
-            System.out.println("X:" + mx + "\tY:" + my);
+            //mx = e.getX();
+            //my = e.getY();
+            //System.out.println("X:" + mx + "\tY:" + my);
 
         }
     }
