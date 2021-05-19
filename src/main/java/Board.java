@@ -4,15 +4,26 @@ public class Board {
 
     private int columns;
     private int rows;
+    private Cell[][] cellArray;
 
-    public Board(/*int numberOfMines, Cell cell, int columns, int rows*/) {
+    public Board(/*int numberOfMines, int columns, int rows*/) {
         this.numberOfMines = numberOfMines;
-        this.cell = cell;
         this.columns = columns;
         this.rows = rows;
+
+        make2DArrayBoardFromCells();
+
+        setMines();
+
+        countNeighbouringMines();
+
+
     }
 
-    public void make2DArrayBoardFromCells (int columns, int rows){
+
+
+
+    public void make2DArrayBoardFromCells (){
         Cell[][] cellArray = new Cell[columns][rows];
 
         for (int i=0; i<columns; i++) {
@@ -24,16 +35,61 @@ public class Board {
         //return cellArray;
     }
 
+    private void setMines() {
+
+        int x;
+        int y;
+        boolean isMine;
+        int currentMines = 0;
+
+        while (currentMines != numberOfMines)
+        {
+            x = (int)Math.floor(Math.random() * columns);
+
+            y = (int)Math.floor(Math.random() * rows);
+
+            isMine = cellArray[x][y].isMine();
+
+            if(!isMine)
+            {
+                cellArray[x][y].setMine(true);
+                currentMines++;
+            }
+        }
+    }
 
 
 
+    private void countNeighbouringMines() {
+
+        for(int x = 0 ; x < columns ; x++)
+        {
+            for(int y = 0 ; y < rows ; y++)
+            {
+                cellArray[x][y].setNeighbouringMines(counting(x,y));
+            }
+        }
+
+    }
+
+    private int counting(int x, int y) {
+        int neighbours = 0;
+
+        for(int i=1; i<=x; i++){
+            for(int j=1; j<=y; j++)
+            {
+                // Skip (xCo, yCo), since that's no neighbour.
+                if(x != xCo || y != yCo)
+                    if(cellArray[x][y].getMine())   // If the neighbour contains a mine, neighbours++.
+                        neighbours++;
+            }
+        }
+
+        return neighbours;
 
 
 
-
-
-
-
+    }
 
 
     public int getNumberOfMines() {

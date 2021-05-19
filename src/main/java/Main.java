@@ -1,10 +1,12 @@
 public class Main {
     public static void main(String[] args) {
 
-        new LevelSelection();
+        LevelSelection levelSelection = new LevelSelection();
 
 
 
-        //Game game = new Game();
+
+
+        Game game = new Game();
     }
 }

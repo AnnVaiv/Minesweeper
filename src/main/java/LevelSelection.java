@@ -64,7 +64,7 @@ public class LevelSelection extends JFrame implements ActionListener {
     }
 
 
-    public void setDifficulty(int input) {
+    public Level setDifficulty(int input) {
         Level level = new Level();
         if (input == 0) {
             level.setLevel("Beginner");
@@ -82,8 +82,12 @@ public class LevelSelection extends JFrame implements ActionListener {
         }
 
         System.out.println("Selected difficulty:" + level.getLevel() + "  size:" + level.getBoardSize() + "  mines:" + level.getMineCount());
+        Level selectedLevel= new Level();
+        selectedLevel.level=level.getLevel();
+        selectedLevel.boardSize=level.getBoardSize();
+        selectedLevel.mineCount=level.getMineCount();
 
-
+        return selectedLevel;
     }
 
 
